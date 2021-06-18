@@ -1,0 +1,436 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: black;
+    height: 100vh;
+    font-family: sans-serif;
+    position: relative;
+}
+.title{
+     background-color: #217346;
+     text-align: center;
+     font-size: 1rem;
+     padding: 0.5rem;
+     height: 5vh;
+     color: #fff;
+}
+.menu-bar{
+display: flex;
+height: 5vh;
+background-color: #217346;
+}
+.menu-bar-item{
+    background-color: #217346;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+   
+}
+.menu-bar-item.selected{
+    background-color: #fff;
+    color: #217346;
+}
+.menu-bar-item:hover{
+    background-color: #1a5c39;
+    cursor: pointer;
+}
+.menu-bar-item.selected:hover{
+background-color: #fff;
+cursor: default;
+}
+.menu-icon-bar{
+    display: flex;
+    flex-direction: row;
+    height: 6vh;
+    align-items: center;
+}
+.menu-icon{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.menu-icon:hover{
+    background-color:lightgrey;
+    cursor: pointer;
+}
+.menu-selector{
+    height: 4.5vh;
+    font-size: 1.2rem;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+}
+#font-size{
+    width: 3.5vw;
+    min-width: 55px;
+}
+#font-family{
+    width: 10vw;
+    min-width: 130px;
+    font-family: Noto Sans;
+}
+.formula-bar{
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: lightgray;
+}
+#selected-cell{
+    width: 120px;
+    /* border: 1px solid; */
+    height: 70%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+}
+#formula-sign{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+#formula-input{
+    width: calc(100vw - 160px);
+    /* border: 1px solid; */
+    height: 70%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+}
+.data-container{
+    display: flex;
+    flex-direction: row;
+    height: 75vh;
+    flex-wrap: wrap;
+    /* overflow: scroll; */
+}
+#select-all{
+    width: 25px;
+    height: 25px;
+    border: 1px solid lightgray;
+}
+ #columns{
+    height: 25px;
+    width: calc(100vw - 25px);
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+#rows{
+    width: 25px;
+    height: calc(75vh - 25px);
+    border: 1px solid lightgray;
+    overflow: hidden;
+}
+#cells{
+    position: relative;
+    width: calc(100vw - 25px);
+    height: calc(75vh - 25px);
+    border: 1px solid lightgray;
+    overflow: scroll;
+} 
+.column-name{
+    min-width: 100px;
+    width: 100px;
+    border-right: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+
+}
+.row-name{
+    min-height: 25px;
+    height: 25px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cell-row{
+   display: flex; 
+   flex-direction: row;
+}
+.input-cell{
+    min-width:100px;
+    width: 100px;
+    height: 25px;
+    min-height: 25px;
+    border-bottom: 1px solid lightgray;
+    border-right: 1px solid lightgray; 
+    display: flex;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 16px;
+    font-family: Noto sans;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    outline-color:#217346;
+}
+.input-cell.selected{
+    border: 2px solid #217346;
+}
+
+.input-cell.top-selected{
+    border-top: none;
+}
+.input-cell.bottom-selected{
+    border-bottom: 1px solid lightgray;
+}
+.input-cell.left-selected{
+    border-left: none;
+}
+.input-cell.right-selected{
+    border-right: 1px solid lightgray;
+}
+.menu-icon.selected{
+    background-color: lightgray;
+}
+
+.input-cell:hover{
+    cursor: cell;
+}
+#fill-color{
+    border-bottom: 4px solid #fff;
+    padding-bottom: 2px;
+}
+#text-color{
+    border-bottom: 4px solid #444;
+    padding-bottom: 2px;
+}
+.sheet-bar{
+    display: flex;
+    height: 4vh;
+    width: 100vw;
+    align-items: center;
+}
+.sheet-scroller{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.sheet-tab-container{
+    /* margin: 10px; */
+    display: flex;
+    border-left: 1px solid lightgray;
+    overflow: scroll;
+}
+.sheet-tab-container::-webkit-scrollbar{
+    display: none;
+}
+
+.sheet-tab-container{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sheet-tab{
+    display: flex;
+    padding-top: 4px;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid lightgray;
+    font-weight: 600;
+    height: 4vh;
+    font-size: 14px;
+}
+.sheet-tab.selected{
+    border-bottom: 5px solid #217346;
+    color: #217346;
+}
+.sheet-tab:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.sheet-tab.selected:hover{
+        background-color: #fff;
+        cursor: default;
+}
+.add-sheet{
+    color: #217346;
+    margin-right: 10px;
+}
+.add-sheet:hover{
+    cursor: pointer;
+    transform:scale(1.2)
+}
+
+.sheet-options-modal{
+position: absolute;
+background-color: #fff;
+box-shadow: 0 8px 16px 0 lightgray;
+bottom: 4vh;
+/* left:200px */
+}
+.option{
+    padding: 7px 15px 7px 15px;
+
+}
+.option:hover{
+    background-color: lightgray;
+    cursor: default;
+}
+.scroller{
+    font-size: 30px;
+}
+.scroller:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+.sheet-modal-parent{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color:rgb(68,68,68,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sheet-rename-modal,.sheet-delete-modal{
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgb(82, 81, 85);
+    padding: 15px;
+    min-width: 400px;
+    width: 30vw;
+}
+.sheet-modal-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    color: #217346;
+}
+.sheet-modal-input-container,.sheet-modal-detail-container{
+    padding: 20px;
+}
+.sheet-modal-detail-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+.sheet-modal-input-title,.sheet-modal-detail-title{
+    font-weight: 600;
+    display: block;
+margin-bottom: 10px;
+
+}
+.sheet-modal-input{
+    width: 100%;
+    outline-color: #217346;
+    height: 2rem;
+    font-size: 1.2rem;
+}
+.sheet-modal-confirmation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 3px;
+    font-weight: 600;
+}
+.yes-button{
+    background-color: #217346;
+    color: #fff;
+}
+.yes-button:hover{
+    background-color: #1d633c;
+    cursor: pointer;
+}
+.no-button:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.delete-icon{
+    margin-right: 8px;
+}
+.rename-error{
+    margin-top: 5px;
+color: red;
+font-size: 14px;
+}
+.file-modal{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0vw;
+    height: 100vh;
+    display: flex;
+}
+.file-options-modal{
+    background-color: #217346;
+    height: 100%;
+    width: 13rem;
+    color: #fff;
+}
+.file-recent-modal{
+    background-color: #fff;
+    height: 100%;
+    width: calc(50% - 13rem);
+}
+.close,.new,.open,.save{
+    padding-top: 8px;
+    padding-bottom: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+font-weight: 300;
+position: relative;
+}
+.close{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.close-icon{
+    transform: rotate(90deg);
+    }
+.close-icon,.new-icon,.open-icon,.save-icon{
+        position: absolute;
+        left: 2rem;
+        }   
+.close:hover,.new:hover,.open:hover,.save:hover{
+    cursor: pointer;
+    background-color: #14442a;
+}
+.file-transparent{
+    height: 100%;
+    width: 50%;
+}
